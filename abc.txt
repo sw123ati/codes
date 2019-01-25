@@ -1,0 +1,348 @@
+	WORD STATICS
+
+using System;
+using System.Collections.Generic;
+
+//Read only region start
+public class UserMainCode
+{
+    public string StringStatistics(string input1)
+    {
+        //Read only region end
+        //Write code here
+		string str="";
+		int a = 0,b=0;
+		string res="";
+		foreach(char c in input1){
+			if(char.IsLetter(c)){
+				b++;
+				str += c.ToString();
+			}
+			else 
+			{
+				a +=(int)c-48;
+				Console.WriteLine(a);
+			}
+		}
+		if(b==input1.Length||b==0)
+		{
+			return "ZERO";
+		}else return 	res = b.ToString()+str+a.ToString();
+		
+        //throw new NotImplementedException("Method  StringStatistics(string input1) not Implemented.");
+    }
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+using System;
+using System.Collections.Generic;
+
+//Read only region start
+public class UserMainCode
+{
+    public int weightOfString(string input1,int input2)
+    {
+        //Read only region end
+        //Write code here
+		input1 = input1.ToUpper();
+		int sum=0;
+		if(input2==0){
+			foreach(char c in input1)
+			{
+				if(char.IsLetter(c)){
+				if(c!='A' && c!='E' && c!='I' && c!='O' && c!='U')
+				{
+					sum += c -64;
+				}
+				
+			}
+				else
+				{
+					sum += 0;
+				}
+			}
+		}
+		if(input2==1){
+			foreach(char c in input1){
+				if(char.IsLetter(c)){
+					sum += c -64;
+				}
+				else{
+					sum += 0;
+				}
+			}
+			
+		}
+		return sum;
+        //throw new NotImplementedException("Method  weightOfString(string input1,int input2) not Implemented.");
+    }
+}
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+CYCLIC DIGITS
+
+using System;
+using System.Collections.Generic;
+
+//Read only region start
+public class UserMainCode
+{
+    public int sumOfSumsOfDigits(int input1)
+    {
+        //Read only region end
+        //Write code here
+		int i=0;
+		int sum=0,p=1;
+		int[] arr = new int[input1.ToString().Length];
+		while(input1!=0){
+			arr[i] = input1%10;
+			i++;
+			input1 /= 10;
+		}
+		Array.Reverse(arr);
+		foreach(int a in arr){
+			sum += a*p;
+			p++;
+		}
+		return sum;
+       // throw new NotImplementedException("Method  sumOfSumsOfDigits(int input1) not Implemented.");
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------
+LINK 1
+
+using System;
+using System.Collections.Generic;
+
+//Read only region start
+public class UserMainCode
+{
+    public double FindAverage(int input1)
+    {
+        //Read only region end
+        //Write code here
+		int i =0;double sum=0;
+		double avg =0;
+		int len = input1.ToString().Length;
+		int[] arr = new int[input1.ToString().Length];
+		while(input1!=0){
+			arr[i] = input1%10;
+			i++;
+			input1 /= 10;
+			if(arr[0]==0)
+                          {
+				len = input1.ToString().Length - 1;
+			}
+		}
+		foreach(int a in arr){
+			sum += a;
+		}
+		avg = sum/len;
+		return System.Math.Round(avg,2);
+        //throw new NotImplementedException("Method  FindAverage(int input1) not Implemented.");
+    }
+}
+----------------------------------------------------------------------------------------------------------------------
+LEAST FREQUENT
+
+using System;
+using System.Collections.Generic;
+
+//Read only region start
+public class UserMainCode
+{
+    public int LeastFrequentDigit(int input1,int input2,int input3,int input4)
+    {
+        //Read only region end
+        //Write code here
+		int[] arr = new int[10];
+		do{
+			arr[input1%10]++;
+			input1 /= 10;
+		}
+		while(input1!=0);
+		do{
+			arr[input2%10]++;
+			input2 /= 10;
+		}while(input2!=0);
+		do{
+			arr[input3%10]++;
+			input3 /= 10;
+		}while(input3!=0);
+		do{
+			arr[input4%10]++;
+			input4 /= 10;
+		}while(input4!=0);
+		int min =100,pos=0;
+		for(int i=0;i<arr.Length;i++){
+			if(arr[i]<min && arr[i]!=0){
+				min=arr[i];
+				pos =i;
+			}
+		}
+		return pos;
+       // throw new NotImplementedException("Method  LeastFrequentDigit(int input1,int input2,int input3,int input4) not Implemented.");
+    }
+}
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+FIND OCCURENCE
+
+
+using System;
+using System.Collections.Generic;
+
+//Read only region start
+public class UserMainCode
+{
+    public int FindNumberOfOccurrence(int input1,int input2)
+    {
+        //Read only region end
+        string s="";
+		int count=0;
+		for(int i=0;i<=input2;i++)
+		{
+		 	s=Convert.ToString(i);
+			for(int j=0;j<s.Length;j++)
+			{
+				if(input1==char.GetNumericValue(s[j]))
+				{
+					count++;
+				}
+			}
+		}
+		return count;
+		}
+	
+    }
+--------------------------------------------------------------------------------------------------------------------------------
+STEP NUMBER
+
+using System;
+using System.Collections.Generic;
+
+//Read only region start
+public class UserMainCode
+{
+    public Boolean StepNumber(int input1)
+    {
+        //Read only region end
+    int j=0,m=0;
+		bool isstepno=false;
+		string str=Convert.ToString(input1);
+		for(int i=0;i<str.Length;i++)
+		{
+			j=i+1;			
+			if(j==str.Length)
+			{
+			 break;
+			}
+			
+			
+				m=Math.Abs((int)char.GetNumericValue(str[i])-(int)char.GetNumericValue(str[j]));
+				Console.Write(m);
+						
+		      if(m==1||m==0)
+		      {
+		          	isstepno=true;
+		      }
+			 else 
+			 {
+			     	isstepno=false;
+				    break;
+			 }
+         }
+		
+		
+		return isstepno;
+	}
+	
+}
+------------------------------------------------------------------------------------------------------------------------------
+SUM OF POWER OF DIGITS:
+
+using System;
+using System.Collections.Generic;
+
+//Read only region start
+public class UserMainCode
+{
+    public int SumOfPowerOfDigits(int input1)
+    {
+        //Read only region end
+	int j=0;
+		string s="";
+		int sum=0;
+		string str=Convert.ToString(input1);
+		for(int i=0;i<str.Length;i++)
+		{
+			
+			j=i+1;
+			if(j==str.Length)
+			{
+				break;
+			}
+		int m=(int)Math.Pow((int)char.GetNumericValue(str[i]),(int)char.GetNumericValue(str[j]));			
+		//m=0;
+		sum+=m;		
+		}
+        sum+=(int)Math.Pow((int)char.GetNumericValue(str[str.Length-1]),str.Length);
+		return sum;
+	}
+
+}
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+FIND STRING
+
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+//Read only region start
+public class UserMainCode
+{
+    public string FindString(string input1)
+    {
+        //Read only region end
+          
+		string s1="";
+		string[] str=input1.Split(' ');
+		for(int i=0;i<str.Length;i++)
+		{
+			char[] ch=str[i].ToCharArray();
+			for(int j=0;j<ch.Length;j++)
+			{
+				if(char.IsUpper(ch[j]))
+				{
+					int m=ch[j]+ch.Length;
+					if(m>=90)
+					{
+						s1+='Z';
+					}
+					else
+					{
+						s1+=(char)m;
+					}
+				}
+				else if(char.IsLower(ch[j]))
+				{
+					int m=ch[j]+ch.Length;
+					if(m>=122)
+					{
+						s1=s1+'z';
+					}
+					else
+					{
+						s1+=(char)m;
+					}
+					
+				}	
+			
+		}
+			s1+=" ";
+	}
+		StringBuilder sb=new StringBuilder(s1);
+			sb.Remove(s1.Length-1,1);
+			
+			return sb.ToString();
+    }
+
+}
